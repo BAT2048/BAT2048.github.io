@@ -1,435 +1,169 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>test</title><meta name="author" content="bat2048"><meta name="copyright" content="bat2048"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="test">
 <meta property="og:url" content="https://bat2048.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="test">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="https://bat2048.github.io/img/butterfly-icon.png">
+<meta property="article:author" content="bat2048">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://bat2048.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "test",
+  "alternateName": [
+    "bat2048.github.io"
+  ],
+  "url": "https://bat2048.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bat2048.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5-b1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
-
-<meta name="generator" content="Hexo 8.1.1"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'test',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">test</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">test</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="博客搭建教程">博客搭建教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-04-25T13:54:37.046Z" title="Created 2026-04-25 21:54:37">2026-04-25</time></span></div><div class="content">⚙️ 准备工作：你的建站工具箱在开始前，需要先准备好两个基础软件和一个GitHub账户。    工具 作用 下载&#x2F;注册地址    Node.js 博客框架 Hexo 的运行环境，就像土壤对于种子一样重要。 nodejs.org（请务必选择 LTS 长期支持版）   Git 版本控制工具，用来将你的博客“推送”到 GitHub 上。 git-scm.com   GitHub 账号 代码和网页的托管平台。 github.com    安装与验证：两个软件安装完成后，建议在终端（macOS&#x2F;Linux）或命令提示符（Windows）输入 node -v 和 git --version，如果显示出各自的版本号，就说明安装成功了。   Windows 用户请注意：强烈建议你使用 Git Bash（安装 Git 后自带）代替 CMD 或 PowerShell 来执行后续命令，可以避免很多路径和编码上的问题。   网络优化（可选）：如果下载速度慢，可以在终端中运行 npm config set registry https://registry.npmmirror.com，...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/04/25/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-04-25T13:50:37.525Z" title="Created 2026-04-25 21:50:37">2026-04-25</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">bat2048</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="博客搭建教程">博客搭建教程</a><time datetime="2026-04-25T13:54:37.046Z" title="Created 2026-04-25 21:54:37">2026-04-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/04/25/hello-world/" title="Hello World">Hello World</a><time datetime="2026-04-25T13:50:37.525Z" title="Created 2026-04-25 21:50:37">2026-04-25</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://BAT2048.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
   
-    <article id="post-博客搭建教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2026-04-25T13:54:37.046Z" itemprop="datePublished">2026-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">博客搭建教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
+    <ul class="card-archive-list">
       
-        <h3 id="⚙️-准备工作：你的建站工具箱"><a href="#⚙️-准备工作：你的建站工具箱" class="headerlink" title="⚙️ 准备工作：你的建站工具箱"></a>⚙️ 准备工作：你的建站工具箱</h3><p>在开始前，需要先准备好两个基础软件和一个GitHub账户。</p>
-<table>
-<thead>
-<tr>
-<th align="left">工具</th>
-<th align="left">作用</th>
-<th align="left">下载&#x2F;注册地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>Node.js</strong></td>
-<td align="left">博客框架 Hexo 的运行环境，就像土壤对于种子一样重要。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://nodejs.org/">nodejs.org</a>（<strong>请务必选择 LTS 长期支持版</strong>）</td>
-</tr>
-<tr>
-<td align="left"><strong>Git</strong></td>
-<td align="left">版本控制工具，用来将你的博客“推送”到 GitHub 上。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git-scm.com</a></td>
-</tr>
-<tr>
-<td align="left"><strong>GitHub 账号</strong></td>
-<td align="left">代码和网页的托管平台。</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://github.com/">github.com</a></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p><strong>安装与验证</strong>：两个软件安装完成后，建议在终端（macOS&#x2F;Linux）或命令提示符（Windows）输入 <code>node -v</code> 和 <code>git --version</code>，如果显示出各自的版本号，就说明安装成功了。</p>
-</blockquote>
-<blockquote>
-<p><strong>Windows 用户请注意</strong>：强烈建议你使用 <strong>Git Bash</strong>（安装 Git 后自带）代替 CMD 或 PowerShell 来执行后续命令，可以避免很多路径和编码上的问题。</p>
-</blockquote>
-<blockquote>
-<p><strong>网络优化（可选）</strong>：如果下载速度慢，可以在终端中运行 <code>npm config set registry https://registry.npmmirror.com</code>，设置淘宝镜像源来加速。</p>
-</blockquote>
-<hr>
-<h3 id="🏠-第一步：在本地搭建你的-Hexo-博客"><a href="#🏠-第一步：在本地搭建你的-Hexo-博客" class="headerlink" title="🏠 第一步：在本地搭建你的 Hexo 博客"></a>🏠 第一步：在本地搭建你的 Hexo 博客</h3><ol>
-<li><p><strong>安装 Hexo 脚手架</strong>：在终端中执行下方命令，全局安装 Hexo 命令行工具：</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><strong>初始化你的博客</strong>：</p>
-<ul>
-<li>在电脑上你想存放博客的位置（比如 <code>Documents</code> 文件夹），打开终端，用下面三条命令来初始化一个博客并启动预览服务器。</li>
-<li><strong>请将 <code>&lt;folder-name&gt;</code> 替换为你喜欢的博客文件夹名字（如 <code>my-blog</code>），避免使用中文</strong>。</li>
-</ul>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder-name&gt;</span><br><span class="line">cd &lt;folder-name&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><strong>本地预览</strong>：执行下面的命令后，在浏览器访问 <code>http://localhost:4000</code>，就能看到 Hexo 默认的博客界面了！按 <code>Ctrl+C</code> 可以停止服务器。</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></li>
-</ol>
-<blockquote>
-<p><strong>博客目录结构</strong>：初始化完成后，你的博客文件夹内会生成以下主要目录和文件。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="left">目录&#x2F;文件</th>
-<th align="left">功能描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>_config.yml</code></td>
-<td align="left">博客的<strong>主配置文件</strong>，几乎所有设置（网站标题、URL、部署信息）都在这里修改。</td>
-</tr>
-<tr>
-<td align="left"><code>source/</code></td>
-<td align="left">你的<strong>内容仓库</strong>。所有文章（Markdown 文件）、图片、页面（如“关于我”）都放在这里。</td>
-</tr>
-<tr>
-<td align="left"><code>themes/</code></td>
-<td align="left"><strong>主题文件夹</strong>，用来存放和切换博客的外观主题。</td>
-</tr>
-<tr>
-<td align="left"><code>scaffolds/</code></td>
-<td align="left"><strong>模板文件夹</strong>，里面定义了新建文章或页面时的默认 Front-matter 结构。</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p><strong>重要提示</strong>：生成静态文件（<code>hexo generate</code> 或 <code>hexo g</code>）后出现的 <code>public/</code> 文件夹，是整个网站的“成品”，需要被推送到 GitHub 上展示。</p>
-</blockquote>
-<hr>
-<h3 id="✍️-第二步：内容创作与主题美化"><a href="#✍️-第二步：内容创作与主题美化" class="headerlink" title="✍️ 第二步：内容创作与主题美化"></a>✍️ 第二步：内容创作与主题美化</h3><h4 id="文章创作"><a href="#文章创作" class="headerlink" title="文章创作"></a>文章创作</h4><ol>
-<li><p><strong>新建文章</strong>：在博客根目录下打开终端，使用下面命令。Hexo 会自动在 <code>source/_posts/</code> 目录下生成一个 <code>.md</code> 文件。</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我的第一篇博客&quot;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><strong>认识 Front-matter</strong>：用文本编辑器（如 Typora, VS Code）打开这个文件，会看到最上方被 <code>---</code> 包裹的区域，这就是 <strong>Front-matter</strong>。它定义了文章的标题、日期、标签等元数据（关于事物的信息），请务必保留并能在此自由修改。</p>
-<p>yaml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World # 文章标题</span><br><span class="line">date: 2024-01-01 10:00:00 # 发布日期</span><br><span class="line">tags: [Hexo, 教程] # 标签</span><br><span class="line">categories: 技术 # 分类</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><strong>开始用 Markdown 写作</strong>：在 <code>---</code> 分隔线之后，就可以用 Markdown 语法开始书写正文了。</p>
-</li>
-</ol>
-<h4 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h4><p>Hexo 有大量免费精美的主题，能把你朴素的基础博客变得惊艳。以下是几个广受好评的选择：</p>
-<ul>
-<li><strong>NexT</strong>: 精于心，简于形。优雅经典的双栏布局，功能强大，适合严肃的技术博客。</li>
-<li><strong>Butterfly</strong>: 界面现代美观，拥有丰富的动效和完整的配置项，视觉体验极佳。</li>
-<li><strong>Fluid</strong>: 一款 Material Design 风格的 Hexo 主题，设计简洁、注重性能，配置项丰富。</li>
-<li><strong>Icarus</strong>: 简洁、现代、响应式的设计，配置逻辑清晰。</li>
-</ul>
-<p><strong>以安装和启用 NexT 主题为例：</strong></p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 1. 克隆主题到你的博客目录下</span><br><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br><span class="line"></span><br><span class="line"># 2. 打开站点根目录下的 _config.yml 文件，找到 theme 字段，修改为 next</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p><strong>最佳实践</strong>：现在很多主题都支持通过独立的配置文件（如 <code>_config.next.yml</code>）来进行自定义，这样能避免直接修改主题源文件，方便后续升级。</p>
-</blockquote>
-<hr>
-<h3 id="🚀-第三步：将博客部署到-GitHub-Pages"><a href="#🚀-第三步：将博客部署到-GitHub-Pages" class="headerlink" title="🚀 第三步：将博客部署到 GitHub Pages"></a>🚀 第三步：将博客部署到 GitHub Pages</h3><p>这是关键一步，让你的本地博客“上线”成为真正的网站。</p>
-<h4 id="1-在-GitHub-创建专属仓库（Repository）"><a href="#1-在-GitHub-创建专属仓库（Repository）" class="headerlink" title="1. 在 GitHub 创建专属仓库（Repository）"></a>1. 在 GitHub 创建专属仓库（Repository）</h4><p>登录 GitHub，新建一个仓库（New repository）。</p>
-<blockquote>
-<p><strong>⚠️ 命名铁律</strong>：仓库名<strong>必须</strong>是 <code>你的GitHub用户名.github.io</code>。例如，你的用户名是 <code>jack123</code>，仓库名就必须是 <code>jack123.github.io</code>。<strong>记住，它是用户名，不是昵称</strong>。这关系到你的博客网址能否正常访问。</p>
-</blockquote>
-<blockquote>
-<p><strong>⚠️ 核心避坑</strong>：创建仓库时，<strong>绝对不要</strong>勾选任何初始化选项，如 “Add a README file”，务必保持空仓库状态，否则后续推送代码会遇到冲突导致失败。</p>
-</blockquote>
-<h4 id="2-配置部署信息"><a href="#2-配置部署信息" class="headerlink" title="2. 配置部署信息"></a>2. 配置部署信息</h4><p>打开你博客根目录下的 <code>_config.yml</code> 文件，找到 <code>Deploy</code> 部分，修改为以下格式。注意，<code>repo</code> 那行我们推荐用 <strong>SSH 链接</strong>（<code>git@github.com:...</code>）。记得把 <code>yourname</code> 替换成你自己的用户名。</p>
-<p>yaml</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: https://yourname.github.io  # 替换成你的博客地址</span><br><span class="line">root: /</span><br><span class="line"># 其他配置保持不变...</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-安装部署插件并执行部署"><a href="#3-安装部署插件并执行部署" class="headerlink" title="3. 安装部署插件并执行部署"></a>3. 安装部署插件并执行部署</h4><p>在博客根目录打开终端，执行以下三条命令：</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安装一键部署插件</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"># 清理并生成静态文件</span><br><span class="line">hexo clean &amp;&amp; hexo generate</span><br><span class="line"></span><br><span class="line"># 一键部署到 GitHub</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>如果是首次部署，系统可能会提示你输入 GitHub 的用户名和密码（或 Token）。</p>
-</blockquote>
-<p>等待部署完成后，访问 <code>https://&lt;你的用户名&gt;.github.io</code>，你的个人博客就正式上线了！之后每次写完新文章，只要再执行 <code>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</code> 就能更新网站。</p>
-<hr>
-<h3 id="✨-第四步：进阶配置与实用技巧"><a href="#✨-第四步：进阶配置与实用技巧" class="headerlink" title="✨ 第四步：进阶配置与实用技巧"></a>✨ 第四步：进阶配置与实用技巧</h3><h4 id="1-绑定独立域名"><a href="#1-绑定独立域名" class="headerlink" title="1. 绑定独立域名"></a>1. 绑定独立域名</h4><p>如果你有自己的域名，可以把它绑定到你的 <code>*.github.io</code> 博客上。</p>
-<ol>
-<li>在 <code>source</code> 文件夹下新建一个名为 <code>CNAME</code> 的文件（注意没有后缀名），里面只写入你的域名，如 <code>www.myblog.com</code>。</li>
-<li>在域名 DNS 管理后台，添加一条 CNAME 记录，将你的域名指向 <code>你的用户名.github.io</code>。</li>
-</ol>
-<h4 id="2-多电脑同步写作"><a href="#2-多电脑同步写作" class="headerlink" title="2. 多电脑同步写作"></a>2. 多电脑同步写作</h4><p>想在不同电脑上管理博客？可以实现。</p>
-<ol>
-<li><strong>备份源码</strong>：在 GitHub 的 <code>yourname.github.io</code> 仓库中，新建一个分支（如 <code>hexo</code>），用于存放博客的“源代码”（即除了 <code>public</code> 文件夹以外的所有文件）。</li>
-<li><strong>新电脑操作</strong>：在新电脑上 <code>git clone</code> 你存放源码的分支，然后在新目录下执行 <code>npm install</code> 安装依赖，就可以无缝继续创作了。</li>
-</ol>
-<h4 id="3-图片管理"><a href="#3-图片管理" class="headerlink" title="3. 图片管理"></a>3. 图片管理</h4><p>推荐使用<strong>图床</strong>（专门的图片托管服务）存储图片，然后在 Markdown 里直接引用图片链接，能够保持博客仓库的轻量。</p>
-<h4 id="4-添加评论功能"><a href="#4-添加评论功能" class="headerlink" title="4. 添加评论功能"></a>4. 添加评论功能</h4><p>静态博客本身没有评论功能，但可以方便地集成第三方服务，例如 <strong>Gitalk</strong>（利用 GitHub Issues 存储评论）或 <strong>Waline</strong> 等，具体配置可参考所选主题的说明文档。</p>
-<hr>
-<h3 id="🔧-常见问题与解决方法-Q-A"><a href="#🔧-常见问题与解决方法-Q-A" class="headerlink" title="🔧 常见问题与解决方法 (Q&amp;A)"></a>🔧 常见问题与解决方法 (Q&amp;A)</h3><ul>
-<li><p><strong>Q: 为什么 <code>hexo deploy</code> 后，访问网站是 404？</strong></p>
-<ul>
-<li><strong>A:</strong> 首先检查 GitHub 仓库名是否正确（必须是 <code>用户名.github.io</code>）。然后进入仓库的 <code>Settings</code> -&gt; <code>Pages</code>，查看部署分支是否选为 <code>main</code> 且目录为 <code>/(root)</code>。如果一切正常，你的代码可能还没推送成功。</li>
-</ul>
-</li>
-<li><p><strong>Q: 部署时遇到报错 “ERROR Deployer not found: git”</strong></p>
-<ul>
-<li><strong>A:</strong> 这是因为你还没安装部署插件。在博客目录下，运行以下命令再重新部署即可。</li>
-</ul>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p><strong>Q: 配置文件中 <code>type:</code> 后面没有空格，导致报错怎么办？</strong></p>
-<ul>
-<li><strong>A:</strong> YAML 语法十分敏感，<strong>冒号后面必须有一个英文空格</strong>。请仔细检查。</li>
-</ul>
-</li>
-<li><p><strong>Q: 本地预览正常，部署后样式或功能丢失怎么办？</strong></p>
-<ul>
-<li><strong>A:</strong> 这通常是路径问题。</li>
-<li>确保 <code>_config.yml</code> 中的 <code>url</code> 和 <code>root</code> 配置正确。如果部署到的是用户站点（<code>用户名.github.io</code>），<code>root</code> 应为 <code>/</code>。</li>
-<li>如果部署到的是项目站点（<code>用户名.github.io/项目名</code>），则 <code>root</code> 应为 <code>/项目名/</code>。</li>
-</ul>
-</li>
-</ul>
-
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/04/">
+            <span class="card-archive-list-date">
+              April 2026
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
       
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bat2048.github.io/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" data-id="cuidp6rCWRTMxhempqszMdZwd" data-title="博客搭建教程" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/04/25/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-04-25T13:50:37.525Z" itemprop="datePublished">2026-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/04/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://bat2048.github.io/2026/04/25/hello-world/" data-id="cuiddfNACN0XylBusHMzjwq6x" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">April 2026</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">博客搭建教程</a>
-          </li>
-        
-          <li>
-            <a href="/2026/04/25/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-25T15:47:00.868Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By bat2048</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5-b1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5-b1"></script><script src="/js/main.js?v=5.5.5-b1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
