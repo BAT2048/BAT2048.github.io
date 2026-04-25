@@ -1,0 +1,584 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>test | test</title><meta name="author" content="bat2048"><meta name="copyright" content="bat2048"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一 基础知识与体系结构1 概述计算机网络的定义具有&#x3D;&#x3D;独立功能&#x3D;&#x3D;（排除了网络系统重主从关系的可能性）的计算机或其他设备，用一定通信设备和介质&#x3D;&#x3D;相互连接&#x3D;&#x3D;（必须是以某种方式互联——物理互联）起来，能够实现&#x3D;&#x3D;信息传递和资源共享&#x3D;&#x3D;（逻辑互联）的系统。  自主计算机的互联集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="https://bat2048.github.io/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="test">
+<meta property="og:description" content="一 基础知识与体系结构1 概述计算机网络的定义具有&#x3D;&#x3D;独立功能&#x3D;&#x3D;（排除了网络系统重主从关系的可能性）的计算机或其他设备，用一定通信设备和介质&#x3D;&#x3D;相互连接&#x3D;&#x3D;（必须是以某种方式互联——物理互联）起来，能够实现&#x3D;&#x3D;信息传递和资源共享&#x3D;&#x3D;（逻辑互联）的系统。  自主计算机的互联集合">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bat2048.github.io/images/%E5%85%AD%E8%8A%B1-bg.png">
+<meta property="article:published_time" content="2026-04-25T19:34:49.462Z">
+<meta property="article:modified_time" content="2026-01-02T01:37:01.426Z">
+<meta property="article:author" content="bat2048">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bat2048.github.io/images/%E5%85%AD%E8%8A%B1-bg.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "https://bat2048.github.io/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/",
+  "image": "https://bat2048.github.io/images/%E5%85%AD%E8%8A%B1-bg.png",
+  "datePublished": "2026-04-25T19:34:49.462Z",
+  "dateModified": "2026-01-02T01:37:01.426Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "bat2048",
+      "url": "https://BAT2048.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bat2048.github.io/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5-b1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'test',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/%E5%85%AD%E8%8A%B1-bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">test</span></a><a class="nav-page-title" href="/"><span class="site-name">test</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-25T19:34:49.462Z" title="Created 2026-04-26 03:34:49">2026-04-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-01-02T01:37:01.426Z" title="Updated 2026-01-02 09:37:01">2026-01-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="一-基础知识与体系结构"><a href="#一-基础知识与体系结构" class="headerlink" title="一 基础知识与体系结构"></a>一 基础知识与体系结构</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="计算机网络的定义"><a href="#计算机网络的定义" class="headerlink" title="计算机网络的定义"></a>计算机网络的定义</h3><p>具有&#x3D;&#x3D;独立功能&#x3D;&#x3D;（排除了网络系统重主从关系的可能性）的计算机或其他设备，用一定通信设备和介质&#x3D;&#x3D;相互连接&#x3D;&#x3D;（必须是以某种方式互联——物理互联）起来，能够实现&#x3D;&#x3D;信息传递和资源共享&#x3D;&#x3D;（逻辑互联）的系统。</p>
+<blockquote>
+<p>自主计算机的互联集合</p>
+</blockquote>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>1969年 第一个广域网建立<br>1975年 第一个局域网——以太网<br>1986年 Internet</p>
+<h3 id="计算机网络组成"><a href="#计算机网络组成" class="headerlink" title="计算机网络组成"></a>计算机网络组成</h3><ul>
+<li>组成部分：一个完整的计算机网络由&#x3D;&#x3D;硬件&#x3D;&#x3D;、&#x3D;&#x3D;软件&#x3D;&#x3D;、&#x3D;&#x3D;协议&#x3D;&#x3D;三大部分组成</li>
+<li>工作方式：计算机网络可分为&#x3D;&#x3D;边缘部分&#x3D;&#x3D;和&#x3D;&#x3D;核心部分&#x3D;&#x3D;（这里的网络通常指因特网）</li>
+<li>功能组成：计算机网络由&#x3D;&#x3D;通信子网&#x3D;&#x3D;和&#x3D;&#x3D;资源子网&#x3D;&#x3D;组成</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241213181440329.png" alt="image-20241213181440329"></p>
+<p><strong>一次完整的通信过程需要用到：</strong></p>
+<ol>
+<li>硬件协议实体——低层协议族的实现<br>由硬件实现：网卡，交换机，集线器，调制解调器</li>
+<li>软件协议实体——高层协议族的实现<br>由软件实现：TCP&#x2F;IP协议软件模块，服务器&#x2F;客户机程序</li>
+</ol>
+<p><img src="D:\note\计算机网络.assets\image-20241213181733389.png" alt="image-20241213181733389"></p>
+<h2 id="计算机网络的类别"><a href="#计算机网络的类别" class="headerlink" title="计算机网络的类别"></a>计算机网络的类别</h2><p>按不同标准，计算机网络的分类也不同</p>
+<ul>
+<li>拓扑结构：总线网、环型网、星型网和网状型（或分布型）网</li>
+<li>交换方式：电路交换网、报文交换网、分组交换网</li>
+<li>通信技术：广播式网络和点到点网络</li>
+<li>分布距离：广域网、城域网、局域网、个人区域网、体域网</li>
+</ul>
+<h3 id="计算机网络的拓扑结构"><a href="#计算机网络的拓扑结构" class="headerlink" title="计算机网络的拓扑结构"></a>计算机网络的拓扑结构</h3><p>拓扑结构：网络系统中的结点（包括计算机和通信设备）和通信链路构成的几何形状</p>
+<p><img src="D:\note\计算机网络.assets\image-20241216213520061.png" alt="image-20241216213520061"></p>
+<p><img src="D:\note\计算机网络.assets\image-20241216213539857.png" alt="image-20241216213539857"></p>
+<h3 id="交换方式"><a href="#交换方式" class="headerlink" title="交换方式"></a>交换方式</h3><p><strong>电路交换</strong>：</p>
+<ol>
+<li>面向连接：建立连接-通信-释放连接——通信之前首先要拨号以建立连接（有时间延迟）</li>
+<li>占用通道——通话工程中始终占用已建立连接的通路</li>
+<li>固定宽带——通信线路利用率低</li>
+</ol>
+<p><strong>分组交换</strong>是指在传输数据之前，将要传输的数据划分成一个个小的数据段，并在每一个数据段前加上必要的控制信息，如目的地址、源地址、差错校验信息等，与数据段一起构成一个分组（packet），然后再将分组&#x3D;&#x3D;独立地&#x3D;&#x3D;发送到网络上</p>
+<ol>
+<li>无连接：通信时不需要事先建立连接而是随时发送数据</li>
+<li>存储转发技术：结点交换机将收到的分组先放入缓存，再查找转发表，然后确定将该分组交给端口转发出去</li>
+<li>灵活：每一个分组可以根据header标记而在分组交换网中独立地选择传输路径</li>
+<li>网络整体效率高</li>
+<li>整体交换速率高（短分组存与缓存中）</li>
+<li>通信线路利用率高（动态分配宽带）</li>
+</ol>
+<p><img src="D:\note\计算机网络.assets\image-20241216215140101.png" alt="image-20241216215140101"></p>
+<p>分组交换网提供两种服务：<strong>数据报服务</strong>、<strong>虚电路服务</strong></p>
+<p><img src="D:\note\计算机网络.assets\image-20241216215455512.png" alt="image-20241216215455512"></p>
+<p>计算机网络按照链路层通信技术分为两类</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>广播式（Broadcast）网络</th>
+<th>点到点（Point to Point）网络</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通信信道</td>
+<td>广播式信道</td>
+<td>点到点信道</td>
+</tr>
+<tr>
+<td>两类交换方式</td>
+<td>一台计算机向指定目的地址发送分组<br />一个计算机向广播地址发送广播分组</td>
+<td>由一条物理线路直接连接<br />通过中间结点存储转发、选择路由——多跳转发网络</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>可以实现一对多的通信</td>
+<td>只能实现一对一的通信</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>共享网络必定是广播网络，广播网络不一定是共享网络</p>
+</blockquote>
+<h3 id="按照网络覆盖范围"><a href="#按照网络覆盖范围" class="headerlink" title="按照网络覆盖范围"></a>按照网络覆盖范围</h3><ul>
+<li>局域网（LAN）<ul>
+<li>分布范围：几公里以内</li>
+<li>传输速率：目前10Mbps-10000Mbps</li>
+<li>延迟小</li>
+<li>各站点能对等参与对整个网络的使用和监控</li>
+<li>网络技术：广播式通信技术</li>
+<li>经典的局域网技术有：以太网、无线局域网、令牌环网、令牌总线网和光纤分布式数据接口（FDDI）等</li>
+<li>驻地网络通常是局域网</li>
+</ul>
+</li>
+<li>广域网（WAN）<ul>
+<li>分布范围：跨城市、地区、国家</li>
+<li>传输速率：根据使用技术的不同差别较大</li>
+<li>拓扑结构：网状结构</li>
+<li>网络技术：点到点通信技术</li>
+<li>典型的广域网技术有：X. 25，帧中继，光传输网技术（如，SDH）</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h2><h3 id="协议：通信双方对等层-对等实体之间实现共同功能应遵守的规则"><a href="#协议：通信双方对等层-对等实体之间实现共同功能应遵守的规则" class="headerlink" title="协议：通信双方对等层&#x2F;对等实体之间实现共同功能应遵守的规则"></a>协议：通信双方对等层&#x2F;对等实体之间实现共同功能应遵守的规则</h3><p>协议的三要素组成：</p>
+<ul>
+<li>语法：数据与控制信息的结构或格式</li>
+<li>语义：规定各部分的含义及其操作，如需要发出何种控制信息，完成何种动作以及如何作出何种应答</li>
+<li>时序（同步）：事件实现顺序的详细说明</li>
+</ul>
+<blockquote>
+<p>注意：协议至于对等层有关，是负责对等实体（peer entity）之间通信的</p>
+<p>协议是水平的，服务是垂直的</p>
+</blockquote>
+<p><img src="D:\note\计算机网络.assets\image-20241216222048613.png" alt="image-20241216222048613"></p>
+<p>网络协议分层次的优点和缺点：</p>
+<ul>
+<li>优点：将一个复杂的大问题分解为 若干个易处理的小问题，<strong>易于设计、实现和维护</strong>。各层之间是<strong>独立地，灵活性好</strong></li>
+<li>缺点：有些功能可能会在不同层次上重复出现，从而<strong>造成额外开销，降低了效率</strong></li>
+</ul>
+<p><em>分而治之</em></p>
+<h3 id="网络服务"><a href="#网络服务" class="headerlink" title="网络服务"></a>网络服务</h3><p>服务：彼此相邻的两层间下层为上层提供的通信能力或操作（垂直方向）</p>
+<p>通过服务，将下层功能的视线细节对上层屏蔽起来</p>
+<p>高层的功能是以其下层提供的服务为基础的</p>
+<p>接口：同一结点内相邻两层间交换信息的连接点</p>
+<ol>
+<li>网络服务类型（1）<ul>
+<li>面相连接服务<ul>
+<li>整个通信过程包含三个阶段：&#x3D;&#x3D;建立连接、传输数据和释放连接&#x3D;&#x3D;。</li>
+<li>接收端接收到的数据顺序与发送&#x3D;&#x3D;顺序相同&#x3D;&#x3D;</li>
+<li>适合于在一个车期间内要向同一目的地&#x3D;&#x3D;发送大量数据的情况&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li>无连接服务<ul>
+<li>通信之前&#x3D;&#x3D;不需要建立连接&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;各分组被独立地传送&#x3D;&#x3D;到目的地，到达顺序可能不同于发送顺序，因此每个分组都必须包含地址信息</li>
+<li>灵活方便，适用于一次传送的&#x3D;&#x3D;数据量最小的情况&#x3D;&#x3D;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络服务的类型（2）<ul>
+<li>有应答（确认）服务<ul>
+<li>接收方在收到数据后向发送方给出相应的应答（确认）</li>
+<li>传输系统内部自动实现    例：要求回执的邮件</li>
+</ul>
+</li>
+<li>无应答（确认）服务<ul>
+<li>接收方不自动给出应答（确认）    例：普通信件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络服务的类型（3）<ul>
+<li>可靠服务<ul>
+<li>通过以下机制能够保证数据正确地到达目的地的服务：<ul>
+<li>检错，自动应答，出错自动重传</li>
+<li>纠错</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不可靠服务<ul>
+<li>不保证数据的正确性的服务</li>
+<li>常被称为“尽最大努力交付”（best effort delivery）服务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="SAP（Service-Access-Point）"><a href="#SAP（Service-Access-Point）" class="headerlink" title="SAP（Service Access Point）"></a>SAP（Service Access Point）</h3><ul>
+<li>服务数据单元SDU（service data unit）<ul>
+<li>跨过网络传给对等实体并需交给n+1层的数据单元</li>
+</ul>
+</li>
+<li>协议数据单元PDU（protocol data unit）<ul>
+<li>在对等实体间传送的数据单元。SDU分段后再加上报头就是PDU</li>
+<li>报文头部信息也叫协议控制信息（PCI，Protocol Control Information）</li>
+</ul>
+</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241216225238318.png" alt="image-20241216225238318"></p>
+<p><img src="D:\note\计算机网络.assets\image-20241216225359180.png" alt="image-20241216225359180"></p>
+<p>报头：发送端向下传输数据时添加的信息。</p>
+<p>封装：将上层数据加上报头后构成本层分组的操作。</p>
+<p>解封：接收端将分组的数据区部分提取出来交给上一层的操作。（将报头丢弃）</p>
+<h3 id="网络体系结构的定义"><a href="#网络体系结构的定义" class="headerlink" title="网络体系结构的定义"></a>网络体系结构的定义</h3><p>两种定义：</p>
+<ul>
+<li>计算机网络的层次结构及其各层协议的集合</li>
+<li>计算机网络及其部件搜应完成的功能的精确定义。</li>
+</ul>
+<p>不同的体系结构有不同的分层模型和协议，具体影响的三个体系结构：</p>
+<ul>
+<li>ISO&#x2F;OSI 参考模型</li>
+<li>TCP&#x2F;IP 协议族</li>
+<li>I EEE 802 系列标准</li>
+</ul>
+<h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>国际标准化组织ISO（International Standard Organization）提出开放系统互联参考模型（OSI&#x2F;RM），但是值得注意的是ISO只描述了OSI各层应该完成的功能，而并未确切地描述用于各层的协议。</p>
+<p><img src="D:\note\计算机网络.assets\image-20241216231207548.png" alt="image-20241216231207548"></p>
+<ol>
+<li>物理层<ul>
+<li>是OSI参考模型的最底层，主要任务是在通信线路上传输数据比特（bit） 的电信号，&#x3D;&#x3D;与传输介质有关&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li>数据链路层<ul>
+<li>数据链路层负责在相邻结点之间的链路上传送以“&#x3D;&#x3D;帧（frame）&#x3D;&#x3D;”为单位的数据，即实现帧的传输控制。</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li>主要功能是网络与网络之间的&#x3D;&#x3D;路由选择、拥塞控制&#x3D;&#x3D;与&#x3D;&#x3D;异种网络互连&#x3D;&#x3D;等功能。</li>
+</ul>
+</li>
+<li>传输层负责提供两端点之间数据的传送，主要功能是实现&#x3D;&#x3D;流量控制&#x3D;&#x3D;和&#x3D;&#x3D;将数据报交付给相应的应用进程&#x3D;&#x3D;</li>
+<li>会话层<ul>
+<li>负责控制&#x3D;&#x3D;会话中&#x3D;&#x3D;每一站究竟什么时间可以传送与接收数据</li>
+</ul>
+</li>
+<li>表示层<ul>
+<li>主要用于处理两个通信系统重信息的&#x3D;&#x3D;格式表示方式&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li>应用层<ul>
+<li>负责网络中应用程序与网络操作系统之间的联系，&#x3D;&#x3D;为用户提供各种服务&#x3D;&#x3D;</li>
+</ul>
+</li>
+</ol>
+<h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP&#x2F;IP协议族"></a>TCP&#x2F;IP协议族</h3><p>TCP&#x2F;IP是由自愿者组成的民间团体ISOC（Internet Society）管辖的一个主要部门IAB（Internet Architecture Board）负责发布和管理的，Internet标准–RFC文档。</p>
+<p><img src="D:\note\计算机网络.assets\image-20241216232344545.png" alt="image-20241216232344545"></p>
+<h3 id="IEEE-802系列标准"><a href="#IEEE-802系列标准" class="headerlink" title="IEEE 802系列标准"></a>IEEE 802系列标准</h3><p>由电气电子工程师协会IEEE（The Institute of Electrical and Electronic Engineer）的802委员定制，对应与OSI模型的数据链路层和物理层。</p>
+<p><img src="D:\note\计算机网络.assets\image-20241216232553159.png" alt="image-20241216232553159"></p>
+<p><img src="D:\note\计算机网络.assets\image-20241216232846643.png" alt="image-20241216232846643"></p>
+<blockquote>
+<p>20世纪90年代后，以太网在局域网市场中已取得了垄断地位逻辑莲路控制子层LLC的作用已不大，因此很多厂商生产的网卡上仅装有MAC协议而没有LLC协议</p>
+</blockquote>
+<p>实际上，现在的网络体系结构在某些情况下已经发生演变，特别是在工业控制系统中，一些应用程序可以直接使用IP层，或直接使用数据链路层。</p>
+<p><img src="D:\note\计算机网络.assets\image-20241216232906689.png" alt="image-20241216232906689"></p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="物理层概述"><a href="#物理层概述" class="headerlink" title="物理层概述"></a>物理层概述</h2><p>物理层的主要任务为确定与传输媒体（介质）的接口有关的一些特性，提供建立、维持、撤销物理连接的手段，保证位的透明传输（屏蔽掉不同传输介质和通信手段的差异）</p>
+<p>特性：</p>
+<ul>
+<li><strong>机械特性</strong>：规定了物理连接插头和插座的几何形状与尺寸，插针或插空芯数及其排列方式、锁定装置的形式</li>
+<li><strong>电气特性</strong>：规定包括接收器和发送器电路特性的说明、标识信号状态的电压&#x2F;电流电平的识别、最大数据率的说明、以及与互联电缆相关的规定</li>
+<li><strong>功能特性</strong>：规定了物理接口上各条信号的功能分配和确切定义。物理接口上信号一般可分为数据信号线、控制信号线、定时信号线和接地线</li>
+<li><strong>过程（规程）特性</strong>：定义了为完成规定的功能应执行的操作及其时序</li>
+</ul>
+<h2 id="数据通信"><a href="#数据通信" class="headerlink" title="数据通信"></a>数据通信</h2><p>基础概念</p>
+<p><strong>数据</strong>：表达信息的实体</p>
+<p><strong>信号</strong>：数据的电、磁或光的表现形式，用以传输数据</p>
+<p><strong>信道</strong>：传输信号的通道，由传输介质及附属设备组成</p>
+<p><img src="D:\note\计算机网络.assets\image-20241217120808762.png" alt="image-20241217120808762"></p>
+<p><img src="D:\note\计算机网络.assets\image-20241217120857635.png" alt="image-20241217120857635"></p>
+<p><strong>基带信号（Baseband Signal）</strong>：指<strong>未经过调制</strong>的原始信号，它占据整个频谱范围可以是数字信号也可以是模拟信号，通常指数字信号（包括由计算机或终端产生的和经过编码的数字信号）。频谱从零开始，频率范围较大，低频谐波成分多，甚至由直流分量。这种未经调制的信号所占用的频率范围叫基本频带，简称基带（baseband）</p>
+<p><strong>带通信号（Passband Signal）</strong>：带通信号是<strong>经过调制</strong>过程后的信号，它在频谱中占据一定的频率范围，而不是整个频谱。**调制是将基带信号映射到较高的频率范围，以便在传输中传播。**带通信号通常在无线通信中使用，以便在不同频段和通信通道之间进行区分和分配。例如，无线电广播、Wi-Fi信号以及手机通信中的信号都是带通信号</p>
+<p><strong>信道带宽</strong>：是指信道允许通过的信号频率范围</p>
+<p><strong>信号的带宽</strong>：一个信号所包含的谐波的频率范围</p>
+<p><strong>带宽</strong>：一种是指频率范围（如前面提到的基带信号和带通信号），另一种是用来标识信道的最大数据传输速率，通常以比特每秒（bps）为单位</p>
+<blockquote>
+<p>通常，0~f<sub>c</sub>Hz范围内的谐波在传输过程中无衰减，而频率大于f<sub>c</sub>的谐波在传输过程中衰减极大</p>
+<p>&#x3D;&#x3D;称f<sub>c</sub>为信道的截止频率&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;0~f<sub>c</sub>即为该类信道的带宽&#x3D;&#x3D;</p>
+</blockquote>
+<p><strong>码元</strong></p>
+<p>信道上传输的周期信号的波形</p>
+<p>码元的传输速率即信号的波形速率，单位为波特（Baud）</p>
+<p><img src="D:\note\计算机网络.assets\image-20241217123825054.png" alt="image-20241217123825054"></p>
+<p>噪声（是无用信号）：</p>
+<ul>
+<li>存在于所有的电子设备和通信信道中</li>
+<li>噪声是随机产生的，其瞬时值有时会很大，从而使接收端对码元的判决产生错误</li>
+<li>噪声的影响是相对的，如果信号相对较强，那么噪声的影响就相对较小</li>
+</ul>
+<p>信噪比：信号的平均功率和噪声的平均功率之比，常记为S&#x2F;N，并用分贝（dB）作为度量单位。即：&#x3D;&#x3D;信噪比（dB）&#x3D;10log<sub>10</sub>（S&#x2F;N）&#x3D;&#x3D;</p>
+<h3 id="信道的最大传输速率"><a href="#信道的最大传输速率" class="headerlink" title="信道的最大传输速率"></a>信道的最大传输速率</h3><p><strong>尼奎斯特准则</strong>（奈氏准则）</p>
+<p>针对有限带宽无噪声信道</p>
+<p>带宽为W的无噪声低通信道：最大&#x3D;&#x3D;码元&#x3D;&#x3D;传输速率为 &#x3D; 2W（Baud）</p>
+<p>通过调制，若1码元携带V比特信息，则：最大&#x3D;&#x3D;数据&#x3D;&#x3D;传输速率为 &#x3D; 2WV（bps）</p>
+<p><em>例如，一个无噪声的3000Hz地通信道的最高码元传输速率为6000Baud。如果一个码元携带3bits的信息量，则该信道的最大传输速率为18000bps（比特每秒</em></p>
+<p><strong>香农公式</strong></p>
+<p>实际有噪声信道的最大数据传输速率（bps）&#x3D; W log<sub>2</sub>(1 + S&#x2F;N)</p>
+<p>信道的带宽或信道的信噪比越大，信道的极限传输速率就越高</p>
+<p><em>例如，对于3100Hz带宽的标准电话信道，如果信噪比S&#x2F;N&#x3D;2500（模拟电话系统的典型参数），那么无论采用何种先进的调制技术，其数据传输速率一定不可能超过极限数值35Kbps：3100 log<sub>2</sub> (1 + 2500) ≈ 35Kbps<br>若想超过这个数值，只能设法提高信道的信噪比，或者增加信道的传输带宽</em></p>
+<ul>
+<li>任何信道都具有带宽限制（物理特性本身或人为限制）</li>
+<li>不同的信息具有不同的带宽特性</li>
+<li>信道的带宽特性直接影响其最大数据传输速率</li>
+</ul>
+<blockquote>
+<p>结论：</p>
+<ul>
+<li>码元传输速率受尼奎斯特准则的制约</li>
+<li>采用多元制调制方法，以设法使每一个码元都能携带更多个比特的信息量，可提高信息的传输速率</li>
+<li>但无论如何调制，都不可能超过香农极限</li>
+</ul>
+</blockquote>
+<ul>
+<li>奈氏准则：激励工程人员不断探索更加先进的编码技术，使每一个码元携带更多比特的信息量</li>
+<li>香农公式：告诫工程人员，在实际有噪声的信道上，无论采用多么复杂的编码技术，都不可能突破信息传输速率的绝对极限</li>
+</ul>
+<h3 id="信息传递的方向与时间"><a href="#信息传递的方向与时间" class="headerlink" title="信息传递的方向与时间"></a>信息传递的方向与时间</h3><p>按照信息传送的方向与时间的关系，分为三种通信方式</p>
+<ol>
+<li>单工通信：只能有一个方向的通信，而没有反方向的交互<img src="D:\note\计算机网络.assets\image-20241217195755495.png" alt="image-20241217195755495"></li>
+<li>半单工通信：通信双方都可以发送信息，也可以接收信息，但不能在同一时间发送<img src="D:\note\计算机网络.assets\image-20241217195814681.png" alt="image-20241217195814681"></li>
+<li>全双工通信：通信的双方可以同时发送和接收信息。需要有两条独立的信道<img src="D:\note\计算机网络.assets\image-20241217195841396.png" alt="image-20241217195841396"></li>
+</ol>
+<h2 id="传递介质"><a href="#传递介质" class="headerlink" title="传递介质"></a>传递介质</h2><blockquote>
+<p>传输媒体&#x2F;介质不属于计算机网络体系结构中的任何一层，可以认为其位于物理层之下</p>
+</blockquote>
+<h3 id="引导型传输媒体"><a href="#引导型传输媒体" class="headerlink" title="引导型传输媒体"></a>引导型传输媒体</h3><p>有限传输媒体是通过物理导线或电缆来传输信号和数据的传媒方式。这种传输媒体通常包括：</p>
+<ul>
+<li><p><strong>同轴电缆</strong>：同轴电缆是一种常用于有限电视和局域网（LAN）的传输媒体，它由内导体、绝缘层和外导体组成<img src="D:\note\计算机网络.assets\image-20241217195626001.png" alt="image-20241217195626001"><img src="D:\note\计算机网络.assets\image-20241217195648628.png" alt="image-20241217195648628"><br><em>较双绞线有更好的屏蔽特性和传输距离，但价格比双绞线高</em></p>
+</li>
+<li><p><strong>双绞线</strong>：双绞线是最常见的有线传输媒体，用于电话系统和以太网等应用。它包括两根绝缘的铜线以减少干扰</p>
+<ul>
+<li>绞合度越高，可能的数据传输率越高</li>
+<li>模拟传输和数字传输均可以使用双绞线</li>
+<li>传输不同的信号时，所能达到的传输距离不同</li>
+<li>非屏蔽双绞线（UTP）&#x2F;屏蔽双绞线（STP）</li>
+</ul>
+</li>
+<li><p><strong>光纤</strong>：光纤使用光信号而不是电信号来传输数据，它具有高带宽、抗干扰性强的特点，适用于长距离和高速数据传输。</p>
+<p>单模光纤（光线在光纤中一直向前传播不发生全反射，损耗小，适用于长距离传输，但造价高）<br>多模光纤（光线通过全反射和折射向前传播，损耗大，只适用于近距离传输，造价低）</p>
+<p>光纤传输李永乐折射和全反射两个物理原理</p>
+</li>
+</ul>
+<h3 id="非引导型传输媒体"><a href="#非引导型传输媒体" class="headerlink" title="非引导型传输媒体"></a>非引导型传输媒体</h3><p>无线传输媒体是通过无线电波或红外线等无线方式传输信号和数据的传播方式。这种传输媒体通常包括：</p>
+<ul>
+<li><strong>无线电波</strong>：无线通信设备如无线局域网（Wi-Fi）、蓝牙、手机通信等使用无线电波传输数据。</li>
+<li><strong>微波</strong>：长途电话通信、蜂窝电话、电视传播、计算机网络通信</li>
+<li><strong>红外线</strong>：红外线通常用于短距离通信，例如遥控器和红外数据传输</li>
+</ul>
+<h2 id="数据的调试与编码"><a href="#数据的调试与编码" class="headerlink" title="数据的调试与编码"></a>数据的调试与编码</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p><img src="D:\note\计算机网络.assets\image-20241217203132588.png" alt="image-20241217203132588"></p>
+<p>两种常见编码方式：</p>
+<ul>
+<li>&#x3D;&#x3D;曼彻斯特（Manchester）编码&#x3D;&#x3D;：每一位的中间有一跳变<ul>
+<li>1：高电平到低电平</li>
+<li>0：低电平到高电平</li>
+</ul>
+</li>
+<li>&#x3D;&#x3D;差分曼彻斯特编码&#x3D;&#x3D;：<ul>
+<li>1：前半个码元电平与上一码元的后半个电平一样</li>
+<li>0：前半个码元电平与上一码元的后半个电平相反</li>
+<li>在每一位的中心处都有跳变</li>
+</ul>
+</li>
+<li>非归零逆转码（NRZI）<ul>
+<li>在一位期间电平恒定不变，其取值看前沿有无跳变：<ul>
+<li>有跳变表示1</li>
+<li>无跳变表示0</li>
+</ul>
+</li>
+<li>多个连续的0时有问题</li>
+<li>USB和nB&#x2F;mB编码采用了这种编码方式<img src="D:\note\计算机网络.assets\image-20241217203745334.png" alt="image-20241217203745334"></li>
+</ul>
+</li>
+</ul>
+<h3 id="调制"><a href="#调制" class="headerlink" title="调制"></a>调制</h3><p>基本调制方法：</p>
+<blockquote>
+<p>使用基本调制方法，一个码元只能包含一个比特信息。<img src="D:\note\计算机网络.assets\image-20241217204610263.png" alt="image-20241217204610263"></p>
+</blockquote>
+<p>混合调制方法：</p>
+<blockquote>
+<p>频率、相位、振幅三者中频率和相位是一样的，通常会调相位和振幅<img src="D:\note\计算机网络.assets\image-20241217204547321.png" alt="image-20241217204547321"></p>
+<p>由于4bit编码共有16种不同的组合，因此这16个点中的每个点可对应于一种4bit的编码</p>
+</blockquote>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p><strong>复用</strong>是通信技术中的一个基本概念，它允许多个用户共享同一个信道进行通信，以降低成本，提高信道的利用率<img src="D:\note\计算机网络.assets\image-20241217205034389.png" alt="image-20241217205034389"></p>
+<h3 id="时分多路复用（Time-Division-Multiplexing-TDM）"><a href="#时分多路复用（Time-Division-Multiplexing-TDM）" class="headerlink" title="时分多路复用（Time-Division Multiplexing,TDM）"></a>时分多路复用（Time-Division Multiplexing,TDM）</h3><ul>
+<li><strong>原理</strong>：把时间划分为若干时间片（时隙），各路信号轮流使用分配的时间片，在规定时间片内使用全部带宽</li>
+<li><strong>实现</strong>：将时间划分为一段段等长的时分复用帧（TDM帧）。每一个用户在每一个TDM帧中占用固定时序的时隙</li>
+<li><strong>适用</strong>：既可数字传输，也可用于模拟传输</li>
+<li><strong>要求</strong>：时间片预先分配，即使无数据发送，也空闲</li>
+</ul>
+<blockquote>
+<p>当用户无数据发送时，分配给该用户的时隙只能处于空闲状态，造成线路资源浪费</p>
+</blockquote>
+<p><img src="D:\note\计算机网络.assets\image-20241217205808216.png" alt="image-20241217205808216"></p>
+<h3 id="统计时分多路复用（Statistic-TDM-STDM）"><a href="#统计时分多路复用（Statistic-TDM-STDM）" class="headerlink" title="统计时分多路复用（Statistic TDM,STDM）"></a>统计时分多路复用（Statistic TDM,STDM）</h3><ul>
+<li>也叫异步时分多路复用（ATDM）</li>
+<li>原理：按需动态分配时间片</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241217210108172.png" alt="image-20241217210108172"></p>
+<h3 id="频分多路复用（Frequency-Division-Multiplexing-FDM）"><a href="#频分多路复用（Frequency-Division-Multiplexing-FDM）" class="headerlink" title="频分多路复用（Frequency Division Multiplexing,FDM）"></a>频分多路复用（Frequency Division Multiplexing,FDM）</h3><ul>
+<li>原理：将不同的信号调制为不同的频率，这些不同频率的信号同时在一条线路上传输。各信号可一直使用分配的频段</li>
+<li>适用：模拟传输</li>
+<li>要求：各频段不交叉、不连续</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241217210327645.png" alt="image-20241217210327645"></p>
+<h3 id="波分多路复用（Wavelength-Division-Multiplexing-WDM）"><a href="#波分多路复用（Wavelength-Division-Multiplexing-WDM）" class="headerlink" title="波分多路复用（Wavelength Division Multiplexing,WDM）"></a>波分多路复用（Wavelength Division Multiplexing,WDM）</h3><ul>
+<li>光信道上的频分复用</li>
+<li>原理：多个光信号使用不同的波长同时在光纤上传输</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241217210707936.png" alt="image-20241217210707936"></p>
+<h3 id="码分多址多路复用（Code-Division-Multiple-Access-CDMA）"><a href="#码分多址多路复用（Code-Division-Multiple-Access-CDMA）" class="headerlink" title="&#x3D;&#x3D;码分多址多路复用（Code Division Multiple Access,CDMA）&#x3D;&#x3D;"></a>&#x3D;&#x3D;码分多址多路复用（Code Division Multiple Access,CDMA）&#x3D;&#x3D;</h3><ul>
+<li>原理：<ul>
+<li>多路信号<strong>同时</strong>使用<strong>相同的频带</strong>、但使用<strong>不同的码址</strong>，得到不同的正交分量，合成后传输；接收方根据码址区分不同信源的信号</li>
+<li>这种系统发出的信号<strong>有很强的抗干扰能力</strong>，其频谱类似于白噪声，不易被敌人发现</li>
+</ul>
+</li>
+<li>适用：无线通信</li>
+<li>问题：容量问题，同一系统能容纳的码片数量有限</li>
+</ul>
+<p>每一个比特时间划分为m个短的间隔，称为<strong>码片（chip）</strong></p>
+<p>每个站被指派一个唯一的 m bit 码片序列：</p>
+<ul>
+<li>如发送比特1，则发送自己的 m bit 码片序列</li>
+<li>如发送比特0，则发送该码片序列的二进制反码</li>
+</ul>
+<p><img src="D:\note\计算机网络.assets\image-20241217213112188.png" alt="image-20241217213112188"></p>
+<p>例如，S站的8bit码片序列是00011011</p>
+<ul>
+<li>发送比特1时，就发送序列00011011</li>
+<li>发送比特0时，就发送序列11100100</li>
+<li>通常，S站的码片序列写为如下的向量形式：（-1-1-1+1+1-1+1+1）</li>
+</ul>
+<p>每个站分配的码片序列不仅必须各不相同，并且还必须互相正交。令向量S表示站S的码片向量，令T表示其他任何站的码片向量。两个不同的码片序列正交，就是：</p>
+<ul>
+<li>向量S和T的规格化内积都是0：<img src="D:\note\计算机网络.assets\image-20241217214241235.png" alt="image-20241217214241235"><br>使得接收站可以过滤掉其他站发来的信号</li>
+<li>向量S和T的反码的规格化内积也是0</li>
+</ul>
+<p>例如：令向量S为：（-1-1-1+1+1-1+1+1）<br>               向量T为：（-1-1+1-1+1+1+1-1）<br>把向量S和T的各个分量值带入上式，就可看出这两个码片序列是正交的。</p>
+<p><img src="D:\note\计算机网络.assets\image-20241217224036813.png" alt="image-20241217224036813"></p>
+<h2 id="计算机网络的性能"><a href="#计算机网络的性能" class="headerlink" title="计算机网络的性能"></a>计算机网络的性能</h2><h3 id="传输损害"><a href="#传输损害" class="headerlink" title="传输损害"></a>传输损害</h3><ul>
+<li>衰减：在任何一种传输介质上，信号的强度会随着传输距离的延伸而下降</li>
+<li>延迟失真：有限传输介质的独有现象，在有线介质上信号传播速度是随频率改变的，从而使某些频率要晚于其他频率到达接收机。加大信号功率或高额补偿可以克服</li>
+<li>噪声：无用的信号</li>
+</ul>
+<h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><ul>
+<li><p>宽带：信道允许通过的频带宽度，单位为“赫兹”</p>
+</li>
+<li><p>速率：通常指理论上的链路最大数据发送速率，也称为数据率或比特率，单位为“bps（bits&#x2F;s，或kbits&#x2F;s、Mbits&#x2F;s、Gbits&#x2F;s）”</p>
+</li>
+<li><p>吞吐量：数据发送速率的测量性能，即网络或信道在单位时间内成功传送的总信息量，可用每秒实际传送的比特数、或字节数或帧数来表示</p>
+<p><em>例如，一个速率为10Mbps的链路连接的两个结点之间的数据吞吐量可能只能达到2Mbps</em></p>
+</li>
+</ul>
+<h3 id="时延-延迟"><a href="#时延-延迟" class="headerlink" title="时延&#x2F;延迟"></a>时延&#x2F;延迟</h3><p>时延即时间延迟。端到端总时延指数据从网络（或链路）的一端传送到另一端所需的时间。主要包括：<img src="D:\note\计算机网络.assets\image-20241217225451088.png" alt="image-20241217225451088"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://BAT2048.github.io">bat2048</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://bat2048.github.io/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">https://bat2048.github.io/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/%E5%85%AD%E8%8A%B1-bg.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/04/26/JAVA/" title=""><img class="cover" src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2"></div></div><div class="info-2"><div class="info-item-1">常用CMD命令盘符名称+冒号盘符切换，E:切换到E盘 dir显示当前目录中的内容 cd+文件夹名称进入该文件夹 cd..切换上级目录 cd 文件目录\文件目录进入多级目录 cd回到盘符目录 cls清屏 exit退出cmd窗口 Java入门Java常见类型及用途：java SE——用于桌面程序开发（小众 java ME——用于嵌入式系统开发（已经凉掉了 java EE——服务端开发（最常见 JRE和JDKjdk：Java开发工具包  jre：Java运行环境 jvm虚拟机：Java，java程序运行的地方 核心类库：java已经写好的东西，可以直接拿来用   Java开发工具：javac、java、jdb、jhat  java基础概念java注释1234567891011121314/** *这 *是 *文 *档 *注 *释 *///这是单行注释/*这是多行注释*/  关键字被java赋予了特定含义的英文单词 关键字全部小写。 class类123public class HelloWorld&#123;&#125;  class：用于（创建&#x2F;定义）一个类 类是java最基...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/%E9%BA%BB%E8%A1%A3_avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">bat2048</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">一 基础知识与体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">计算机网络的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.2.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%BB%84%E6%88%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">计算机网络组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%B1%BB%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">计算机网络的类别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.1.</span> <span class="toc-text">计算机网络的拓扑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">交换方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E7%BD%91%E7%BB%9C%E8%A6%86%E7%9B%96%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.3.</span> <span class="toc-text">按照网络覆盖范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">计算机网络的体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%EF%BC%9A%E9%80%9A%E4%BF%A1%E5%8F%8C%E6%96%B9%E5%AF%B9%E7%AD%89%E5%B1%82-%E5%AF%B9%E7%AD%89%E5%AE%9E%E4%BD%93%E4%B9%8B%E9%97%B4%E5%AE%9E%E7%8E%B0%E5%85%B1%E5%90%8C%E5%8A%9F%E8%83%BD%E5%BA%94%E9%81%B5%E5%AE%88%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-number">1.3.1.</span> <span class="toc-text">协议：通信双方对等层&#x2F;对等实体之间实现共同功能应遵守的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.2.</span> <span class="toc-text">网络服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAP%EF%BC%88Service-Access-Point%EF%BC%89"><span class="toc-number">1.3.3.</span> <span class="toc-text">SAP（Service Access Point）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.4.</span> <span class="toc-text">网络体系结构的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.5.</span> <span class="toc-text">OSI参考模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F"><span class="toc-number">1.3.6.</span> <span class="toc-text">TCP&#x2F;IP协议族</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-802%E7%B3%BB%E5%88%97%E6%A0%87%E5%87%86"><span class="toc-number">1.3.7.</span> <span class="toc-text">IEEE 802系列标准</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">2.</span> <span class="toc-text">物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">物理层概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1"><span class="toc-number">2.2.</span> <span class="toc-text">数据通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87"><span class="toc-number">2.2.1.</span> <span class="toc-text">信道的最大传输速率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92%E7%9A%84%E6%96%B9%E5%90%91%E4%B8%8E%E6%97%B6%E9%97%B4"><span class="toc-number">2.2.2.</span> <span class="toc-text">信息传递的方向与时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E4%BB%8B%E8%B4%A8"><span class="toc-number">2.3.</span> <span class="toc-text">传递介质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%AF%BC%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">2.3.1.</span> <span class="toc-text">引导型传输媒体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%BC%95%E5%AF%BC%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">2.3.2.</span> <span class="toc-text">非引导型传输媒体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E8%B0%83%E8%AF%95%E4%B8%8E%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.</span> <span class="toc-text">数据的调试与编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.</span> <span class="toc-text">编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%88%B6"><span class="toc-number">2.4.2.</span> <span class="toc-text">调制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">2.5.</span> <span class="toc-text">信道复用技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%EF%BC%88Time-Division-Multiplexing-TDM%EF%BC%89"><span class="toc-number">2.5.1.</span> <span class="toc-text">时分多路复用（Time-Division Multiplexing,TDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%EF%BC%88Statistic-TDM-STDM%EF%BC%89"><span class="toc-number">2.5.2.</span> <span class="toc-text">统计时分多路复用（Statistic TDM,STDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%91%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%EF%BC%88Frequency-Division-Multiplexing-FDM%EF%BC%89"><span class="toc-number">2.5.3.</span> <span class="toc-text">频分多路复用（Frequency Division Multiplexing,FDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A2%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%EF%BC%88Wavelength-Division-Multiplexing-WDM%EF%BC%89"><span class="toc-number">2.5.4.</span> <span class="toc-text">波分多路复用（Wavelength Division Multiplexing,WDM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%EF%BC%88Code-Division-Multiple-Access-CDMA%EF%BC%89"><span class="toc-number">2.5.5.</span> <span class="toc-text">&#x3D;&#x3D;码分多址多路复用（Code Division Multiple Access,CDMA）&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD"><span class="toc-number">2.6.</span> <span class="toc-text">计算机网络的性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%8D%9F%E5%AE%B3"><span class="toc-number">2.6.1.</span> <span class="toc-text">传输损害</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">2.6.2.</span> <span class="toc-text">性能指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6-%E5%BB%B6%E8%BF%9F"><span class="toc-number">2.6.3.</span> <span class="toc-text">时延&#x2F;延迟</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="Untitled"><img src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Untitled"/></a><div class="content"><a class="title" href="/2026/04/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="Untitled">Untitled</a><time datetime="2026-04-25T19:34:49.462Z" title="Created 2026-04-26 03:34:49">2026-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/26/JAVA/" title="Untitled"><img src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Untitled"/></a><div class="content"><a class="title" href="/2026/04/26/JAVA/" title="Untitled">Untitled</a><time datetime="2026-04-25T19:34:49.456Z" title="Created 2026-04-26 03:34:49">2026-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/26/git/" title="Untitled"><img src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Untitled"/></a><div class="content"><a class="title" href="/2026/04/26/git/" title="Untitled">Untitled</a><time datetime="2026-04-25T19:34:49.449Z" title="Created 2026-04-26 03:34:49">2026-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="博客搭建教程"><img src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="博客搭建教程"/></a><div class="content"><a class="title" href="/2026/04/25/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="博客搭建教程">博客搭建教程</a><time datetime="2026-04-25T13:54:37.046Z" title="Created 2026-04-25 21:54:37">2026-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/25/hello-world/" title="Hello World"><img src="/images/%E5%85%AD%E8%8A%B1-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2026/04/25/hello-world/" title="Hello World">Hello World</a><time datetime="2026-04-25T13:50:37.525Z" title="Created 2026-04-25 21:50:37">2026-04-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By bat2048</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5-b1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5-b1"></script><script src="/js/main.js?v=5.5.5-b1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
